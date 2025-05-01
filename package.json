@@ -1,0 +1,32 @@
+{
+  "name": "clone-tabnews-rw-03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run service:up && next dev",
+    "service:up": "docker compose -f infra/compose.yaml up -d",
+    "service:stop": "docker compose -f infra/compose.yaml stop -d",
+    "service:down": "docker compose -f infra/compose.yaml down",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "migration:create": "node-pg-migrate -m infra/migrations create",
+    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.4",
+    "next": "^15.3.1",
+    "pg": "^8.11.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "node-pg-migrate": "^6.2.2",
+    "prettier": "^3.5.3"
+  }
+}
